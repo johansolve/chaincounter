@@ -13,8 +13,8 @@ This is an ESP32-based marine chain counter system (anchor rode meter) that trac
 
 The chain counter is powered from the anchor windlass remote control connections:
 - **12V power supply**: Main power from windlass control system
-- **12V direction signal**: Signal voltage when anchor is being lowered (chain out)
-- **Magnetic sensor**: Normally-ioeb magnetic proximity sensor mounted in base and magnet mounted on the rotating windlass component
+- **12V direction signal**: Signal voltage when anchor is being lowered (chain out), voltage divided to appropriate ESP32 input level using resistor chain
+- **Magnetic sensor**: Normally-open magnetic proximity sensor mounted in base and magnet mounted on the rotating windlass component
 - **Shielded cable**: Used for sensor connection to minimize interference from the windlass motor's high-current drive circuits
 
 ## Architecture
@@ -75,6 +75,12 @@ The chain counter is powered from the anchor windlass remote control connections
 ### MQTT Topics (SignalK format)
 - `vessels/self/navigation/anchor/rodeLength` - Chain deployed (meters)
 - `vessels/self/navigation/anchor/rodeVelocity` - Deployment speed (m/s)
+
+## Circuit Diagram
+
+<img src="photos/circuit.png" alt="Circuit diagram" width="600">
+
+*Circuit diagram showing ESP32 connections to windlass remote control and magnetic sensor with voltage dividers and RC filters for signal conditioning*
 
 ## Hardware Photos
 
