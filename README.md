@@ -9,6 +9,14 @@ This is an ESP32-based marine chain counter system (anchor rode meter) that trac
 - **Interface**: Web-based dashboard with WebSocket real-time updates
 - **Storage**: Non-volatile preferences for configuration persistence
 
+## Hardware Installation
+
+The chain counter is powered from the anchor windlass remote control connections:
+- **12V power supply**: Main power from windlass control system
+- **12V direction signal**: Signal voltage when anchor is being lowered (chain out)
+- **Magnetic sensor**: Normally-ioeb magnetic proximity sensor mounted in base and magnet mounted on the rotating windlass component
+- **Shielded cable**: Used for sensor connection to minimize interference from the windlass motor's high-current drive circuits
+
 ## Architecture
 
 ### Core Components
@@ -67,3 +75,32 @@ This is an ESP32-based marine chain counter system (anchor rode meter) that trac
 ### MQTT Topics (SignalK format)
 - `vessels/self/navigation/anchor/rodeLength` - Chain deployed (meters)
 - `vessels/self/navigation/anchor/rodeVelocity` - Deployment speed (m/s)
+
+## Hardware Photos
+
+### Circuit Board Assembly
+<img src="photos/circuitboard2.jpg" alt="Circuit board wiring" width="400">
+
+*Detailed view of the ESP32 C6 and power module connections*
+
+<img src="photos/circuitboard.jpg" alt="Circuit board components" width="400">
+
+*ESP32 C6 development board with power management module and shielded cable for magnet sensor*
+
+<img src="photos/box.jpg" alt="Circuit board in enclosure" width="400">
+
+*Complete chain counter unit in waterproof enclosure with cable glands*
+
+### Finished Device
+<img src="photos/finished.jpg" alt="Finished device" width="400">
+
+*Completed chain counter in transparent enclosure showing internal components and Swedish status labels*
+
+### Web Interface
+<img src="photos/screen-down.jpg" alt="Web interface deployment view" width="300">
+
+*Mobile web interface showing 24.9m chain deployed at 0.5 m/s speed (chain going out)*
+
+<img src="photos/screen-up.jpg" alt="Web interface retrieval view" width="300">
+
+*Mobile web interface showing 23.9m chain deployed at 0.4 m/s speed (chain coming in)*
